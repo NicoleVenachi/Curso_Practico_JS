@@ -80,3 +80,138 @@ function toggleCartAside(){
 
     productDetail.classList.toggle('inactive');
 }
+
+// Voy a automatizar el despliegue de productos
+
+const productList = []; //este es el que me devolvería las API's
+
+// aquí me toca crearlo de cero, tienen name, image and price
+// creo 3 productos
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+}); 
+productList.push({
+    name: 'LCD Screen',
+    price: 220,
+    image: 'https://i.imgur.com/wfTzxqX.jpeg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 240,
+    image: 'https://i.imgur.com/4cYdNll.jpeg'
+}); 
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+}); 
+productList.push({
+    name: 'LCD Screen',
+    price: 220,
+    image: 'https://i.imgur.com/wfTzxqX.jpeg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 240,
+    image: 'https://i.imgur.com/4cYdNll.jpeg'
+}); 
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+}); 
+productList.push({
+    name: 'LCD Screen',
+    price: 220,
+    image: 'https://i.imgur.com/wfTzxqX.jpeg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 240,
+    image: 'https://i.imgur.com/4cYdNll.jpeg'
+}); 
+
+const cardContainter = document.querySelector('.cards-container');
+
+renderProducts(productList);
+//voy a ir haciendo appends de cada elemento en el cardContainer
+
+function renderProducts(productList){
+
+    for (product of productList){
+
+        //___Primero, MAQUETAR tengo que crear cada div del product-card___
+    
+        // CREO product card y le meto sus CLASES
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        //creo img, le meto su imagen en ATRIBUTO src y la APPEND en product card
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+    
+        // creo product-info, le meto sus clases y le meto sus elmentos
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        /// creo el div dentro del produc-info y le meto sus párrafos
+        productInfoDiv = document.createElement('div');
+    
+        // párrafos del precio y nombre, y les asigno su TEXTO INTERNO
+    
+        productPrice = document.createElement('p');
+        productName = document.createElement('p');
+    
+        productPrice.innerText = ` $ ${product.price}`;
+        productName.innerText = ` $ ${product.name}`;
+    
+        //Creo el Figure, le meto la img (con su src)
+    
+        const productInfoFigure = document.createElement('figure');
+        const productInfoImgCart = document.createElement('img');
+    
+        productInfoImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+    
+        // _______Segundo, INSERTAR/APPEND cada elemento del product-car___________
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        productInfoFigure.appendChild(productInfoImgCart);
+    
+        //agrego todo al cards containter
+    
+        cardContainter.appendChild(productCard);
+    
+        
+        
+    
+    }
+    
+}
+
+/* HTML a modelar
+<div class="product-card">
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+    <div class="product-info">
+        <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+        </div>
+        <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+        </figure>
+    </div>
+</div> */
+
+
