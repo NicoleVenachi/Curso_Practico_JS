@@ -1,6 +1,6 @@
 # Curso_Practico_JS
 Curso Practico de JS en Platzi
-
+https://nicolevenachi.github.io/Curso_Practico_JS//03_ForkedProject/index.html
 ## Taller #1: Figuras Geométricas
 
 - Primer paso: definir fórmulas.
